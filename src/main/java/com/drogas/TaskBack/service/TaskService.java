@@ -33,7 +33,7 @@ public class TaskService {
     public Task update(Long taskId, TaskRequestDTO taskRequestDTO) {
         Task task = getById(taskId);
         task.setDescription(taskRequestDTO.description());
-        task.setCompleted(taskRequestDTO.isCompleted());
+        task.setCompleted(taskRequestDTO.completed());
 
         return taskRepository.save(task);
     }

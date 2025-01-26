@@ -2,7 +2,6 @@ package com.drogas.TaskBack.model;
 
 import com.drogas.TaskBack.dto.request.TaskRequestDTO;
 import jakarta.persistence.*;
-import lombok.NoArgsConstructor;
 
 @Entity(name = "TASKS")
 @Table(name = "TASKS")
@@ -16,7 +15,7 @@ public class Task {
     private String description;
 
     @Column(nullable = false)
-    private Boolean isCompleted;
+    private Boolean completed;
 
     public Task() {}
 
@@ -26,7 +25,7 @@ public class Task {
 
     public Task(TaskRequestDTO taskRequestDTO) {
         this.description = taskRequestDTO.description();
-        this.isCompleted = taskRequestDTO.isCompleted();
+        this.completed = taskRequestDTO.completed();
     }
 
     public Long getId() {
@@ -38,7 +37,7 @@ public class Task {
     }
 
     public Boolean getCompleted() {
-        return isCompleted;
+        return completed;
     }
 
     public void setDescription(String description) {
@@ -46,6 +45,6 @@ public class Task {
     }
 
     public void setCompleted(Boolean completed) {
-        isCompleted = completed;
+        this.completed = completed;
     }
 }

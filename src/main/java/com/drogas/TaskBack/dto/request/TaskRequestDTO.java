@@ -5,5 +5,5 @@ import jakarta.validation.constraints.NotNull;
 
 public record TaskRequestDTO(
         @NotBlank String description,
-        @NotNull Boolean isCompleted
+        @NotNull Boolean completed
 ) { }
