@@ -24,6 +24,16 @@ public class TaskController {
         return ResponseEntity.ok(taskService.getById(id));
     }
 
+    @GetMapping("/completed")
+    public ResponseEntity<List<Task>> getCompleted() {
+        return ResponseEntity.ok(taskService.getAllCompleted());
+    }
+
+    @GetMapping("/incompleted")
+    public ResponseEntity<List<Task>> getIncompleted() {
+        return ResponseEntity.ok(taskService.getAllIncompleted());
+    }
+
     @GetMapping
     public ResponseEntity<List<Task>> list() {
         return ResponseEntity.ok(taskService.getAll());

@@ -25,6 +25,10 @@ public class TaskService {
         return taskRepository.findById(id).orElseThrow(() -> new NoSuchElementException("Task"));
     }
 
+    public List<Task> getAllCompleted() {
+        return taskRepository.findByCompletedTrue();
+    }
+
     public Task save(TaskRequestDTO taskRequestDTO){
         Task task = new Task(taskRequestDTO);
         return taskRepository.save(task);
@@ -41,5 +45,9 @@ public class TaskService {
     public void delete(Long id) {
         var task = getById(id);
         taskRepository.delete(task);
+    }
+
+    public List<Task> getAllIncompleted() {
+        return taskRepository.findByCompletedFalse();
     }
 }
